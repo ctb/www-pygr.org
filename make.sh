@@ -10,9 +10,13 @@ make
 cp -r html_new ../../nightly
 
 ##
-cp -r html_new ../../latest-release
+
+#@ git checkout v0.8.2
+#@ cp -r html_new ../../pygr-docs-0.8.2
 
 cd ../..
 
-rsync -av nightly latest-release t@teckla.idyll.org:/domains/pygr.org/html/docs
+#@ ln -fs pygr-docs-0.8.2 latest-release
+
+rsync -av nightly pygr-docs-* latest-release t@teckla.idyll.org:/domains/pygr.org/html/docs
 echo BUILD IN ${TMPNAME}
